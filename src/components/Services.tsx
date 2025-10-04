@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, Volume2, BarChart3, Camera, UserCircle, Search, Globe, Building2, Palette } from 'lucide-react';
+import { Users, Volume2, BarChart3, Camera, CircleUser as UserCircle, Search, Globe, Building2, Palette } from 'lucide-react';
 
 const Services = () => {
   const services = [
