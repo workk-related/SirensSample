@@ -1,17 +1,17 @@
 import React from 'react';
-import { Car, Apple, Tv, Droplets, Crown, Sparkles } from 'lucide-react';
+import { Smartphone, Film, Wand2, Crown, Sparkles, Apple, Tv } from 'lucide-react';
 
 const WhySound = () => {
   const soundExamples = [
     {
-      brand: "Ferrari",
-      sound: "The Roar",
-      icon: Car,
-      description: "Instantly recognizable engine sound"
+      brand: "Paytm",
+      sound: "The Notification",
+      icon: Smartphone,
+      description: "That distinctive payment success sound"
     },
     {
       brand: "Apple",
-      sound: "Classic Ringtone", 
+      sound: "Classic Ringtone",
       icon: Apple,
       description: "Everyone knows that sound"
     },
@@ -22,10 +22,16 @@ const WhySound = () => {
       description: "Two notes that mean entertainment"
     },
     {
-      brand: "Coca-Cola",
-      sound: "The Pop",
-      icon: Droplets,
-      description: "The sound of refreshment"
+      brand: "Avengers",
+      sound: "Theme Music",
+      icon: Film,
+      description: "Epic orchestral hero entrance"
+    },
+    {
+      brand: "Harry Potter",
+      sound: "Hedwig's Theme",
+      icon: Wand2,
+      description: "Magical celesta that transports you"
     }
   ];
 
@@ -102,7 +108,7 @@ const WhySound = () => {
         </div>
 
         {/* Sound Examples Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-16">
           {soundExamples.map((example, index) => {
             const Icon = example.icon;
             const gradients = [

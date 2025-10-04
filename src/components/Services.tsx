@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, Volume2, BarChart3, Camera, User, Compass, Crown, Palette } from 'lucide-react';
+import { Users, Volume2, BarChart3, Camera, UserCircle, Search, Globe, Building2, Palette } from 'lucide-react';
 
 const Services = () => {
   const services = [
@@ -19,31 +19,38 @@ const Services = () => {
     },
     {
       icon: Camera,
-      title: "Cinematic Influence ADS",
-      description: "From concept to camera to CGI - cinematic shoots that captivate and convert your audience.",
+      title: "Professional Ad Shoots",
+      description: "From concept to camera to CGI - professional advertising shoots that captivate and convert your audience.",
       featured: false,
       color: "from-golden-ray to-coral-whisper"
     },
     {
-      icon: Crown,
-      title: "Faces of Influence",
-      description: "Professional model providing services to give your brand the perfect face and personality.",
+      icon: UserCircle,
+      title: "Model Providing",
+      description: "Professional modeling services to give your brand the perfect face and personality for any campaign.",
       featured: false,
       color: "from-coral-whisper to-crystal-blue"
     },
     {
-      icon: Compass,
-      title: "The Visibility Engine",
-      description: "Advanced SEO & Google My Business optimization that puts your brand where it needs to be found.",
+      icon: Search,
+      title: "SEO & Ads",
+      description: "Advanced SEO and strategic advertising that puts your brand where it needs to be found.",
       featured: false,
       color: "from-crystal-blue to-sea-foam"
     },
     {
-      icon: Palette,
-      title: "Digital Real Estate Redefined",
-      description: "Website design & revamping that transforms your digital presence into a conversion powerhouse.",
+      icon: Globe,
+      title: "Website Design & Creation",
+      description: "Professional website design and development that transforms your digital presence into a conversion powerhouse.",
       featured: false,
       color: "from-sea-foam to-aqua-dream"
+    },
+    {
+      icon: Building2,
+      title: "Google Listing & Business Registration",
+      description: "Complete Google My Business setup and official business registration to establish your legitimate online presence.",
+      featured: false,
+      color: "from-aqua-dream to-mystic-waters"
     },
     {
       icon: BarChart3,
