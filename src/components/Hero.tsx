@@ -83,7 +83,7 @@ const Hero = () => {
                 Hear Our Sound Demos
               </span>
             </button>
-            <button className="group border-2 border-soft-aqua text-soft-aqua hover:bg-soft-aqua hover:text-ocean-depths px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+            <button className="group border-2 border-golden-ray text-golden-ray hover:bg-golden-ray hover:text-ocean-depths px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105">
               Get Your Free Consultation
             </button>
           </div>
