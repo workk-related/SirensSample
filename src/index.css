@@ -3,172 +3,80 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Theme Variables */
-:root {
-  --bg: #0a0a0f;
-  --txt: #e9fdfb;
-  --neon1: #00ffa8;
-  --neon2: #9b5cff;
-  --neon3: #ff4da6;
-  --glow: var(--neon1);
-}
-
 /* Base Styles */
 body {
-  background: #0a0a0f;
-  color: var(--txt);
+  background: linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 50%, #2D2D2D 100%);
+  color: #F5F5F5;
   overflow-x: hidden;
   min-height: 100vh;
   font-family: 'Inter', sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-/* Smooth Sections */
-section {
-  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Neon Text - Video-like soft bloom */
-.neon-text {
-  color: #fff;
-  text-shadow:
-    0 0 4px #fff,
-    0 0 11px #fff,
-    0 0 19px #fff,
-    0 0 40px var(--glow),
-    0 0 80px var(--glow),
-    0 0 100px var(--glow),
-    0 0 140px var(--glow),
-    0 0 200px var(--glow);
-  animation: neonPulse 1.5s ease-in-out infinite alternate;
-}
-
-/* Flicker for hero title */
-.neon-text.flicker {
-  animation: neonPulse 1.5s ease-in-out infinite alternate, flicker 2.4s infinite;
-}
-
-/* Neon Buttons */
-.neon-btn {
-  background: rgba(20, 20, 32, 0.7);
-  border: 2px solid rgba(155, 92, 255, 0.6);
-  color: #fff;
-  box-shadow:
-    0 0 6px rgba(155, 92, 255, 0.6),
-    0 0 18px rgba(155, 92, 255, 0.4),
-    inset 0 0 12px rgba(0, 255, 168, 0.15);
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
-  cursor: pointer;
-  padding: 12px 28px;
-  border-radius: 8px;
-  font-weight: 600;
-  position: relative;
-  overflow: hidden;
-}
-
-.neon-btn:hover {
-  box-shadow:
-    0 0 10px rgba(255, 77, 166, 0.8),
-    0 0 28px rgba(155, 92, 255, 0.6),
-    0 0 56px rgba(0, 255, 168, 0.5),
-    inset 0 0 16px rgba(0, 255, 168, 0.25);
-  transform: translateY(-2px);
-}
-
-/* Neon Cards */
-.neon-card {
-  background: rgba(20, 20, 32, 0.7);
-  border: 1px solid rgba(155, 92, 255, 0.4);
-  color: #fff;
-  box-shadow:
-    0 0 6px rgba(155, 92, 255, 0.6),
-    0 0 18px rgba(155, 92, 255, 0.4),
-    inset 0 0 12px rgba(0, 255, 168, 0.15);
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
-  position: relative;
-  isolation: isolate;
-  border-radius: 12px;
-  padding: 24px;
-}
-
-.neon-card::before {
-  content: "";
+/* Underwater Floating Particles */
+.underwater-particle {
   position: absolute;
-  inset: -1px;
-  z-index: -1;
-  background: radial-gradient(60% 60% at 50% 50%, rgba(155, 92, 255, 0.35), rgba(255, 77, 166, 0.15) 60%, transparent 70%);
-  filter: blur(14px);
-  border-radius: inherit;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.8), rgba(255, 215, 0, 0.2));
+  border-radius: 50%;
+  animation: underwater-drift 12s linear infinite;
+  opacity: 0.7;
 }
 
-.neon-card:hover {
+.underwater-particle:nth-child(odd) {
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.6), rgba(255, 107, 53, 0.1));
+  animation-duration: 15s;
+}
+
+.underwater-particle:nth-child(3n) {
+  width: 4px;
+  height: 4px;
+  animation-duration: 10s;
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.8), rgba(0, 217, 255, 0.2));
+}
+
+/* Vinyl Disc with Ocean Theme */
+.ocean-vinyl-disc {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, #1A1A1A 0%, #2D2D2D 70%, #0D0D0D 100%);
+  border-radius: 50%;
+  border: 3px solid #FFD700;
   box-shadow:
-    0 0 10px rgba(255, 77, 166, 0.8),
-    0 0 28px rgba(155, 92, 255, 0.6),
-    0 0 56px rgba(0, 255, 168, 0.5),
-    inset 0 0 16px rgba(0, 255, 168, 0.25);
-  transform: translateY(-4px);
+    0 0 40px rgba(255, 215, 0, 0.6),
+    inset 0 0 30px rgba(0, 0, 0, 0.5);
+  animation: vinyl-spin 8s linear infinite;
 }
 
-/* Pulse Animation */
-@keyframes neonPulse {
-  0% {
-    text-shadow:
-      0 0 4px #fff,
-      0 0 11px #fff,
-      0 0 19px #fff,
-      0 0 40px var(--glow),
-      0 0 80px var(--glow),
-      0 0 100px var(--glow),
-      0 0 140px var(--glow),
-      0 0 200px var(--glow);
-  }
-  100% {
-    text-shadow:
-      0 0 6px #fff,
-      0 0 16px #fff,
-      0 0 24px #fff,
-      0 0 60px var(--glow),
-      0 0 110px var(--glow),
-      0 0 150px var(--glow),
-      0 0 190px var(--glow),
-      0 0 260px var(--glow);
-  }
+.ocean-vinyl-disc::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(45deg, #FFD700, #FFC700);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 1);
 }
 
-/* Flicker Micro Variation */
-@keyframes flicker {
-  0%, 18%, 22%, 25%, 53%, 57%, 100% {
-    opacity: 1;
-  }
-  20%, 24%, 55% {
-    opacity: 0.85;
-  }
-}
-
-/* Glow Color Swaps */
-.glow-soft {
-  --glow: var(--neon2);
-}
-
-.glow-strong {
-  --glow: var(--neon3);
-}
-
-/* Data hook for scroll animation */
-[data-animate="glow"] {
-  animation: neonPulse 1.5s ease-in-out infinite alternate;
+.ocean-vinyl-disc::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  border-radius: 50%;
 }
 
 /* Wave Divider */
 .wave-divider {
   position: relative;
-  height: 80px;
+  height: 100px;
   overflow: hidden;
 }
 
@@ -181,83 +89,81 @@ section {
 }
 
 .wave-divider .wave {
-  transition: all 0.8s ease-in-out;
+  animation: wave-motion 6s ease-in-out infinite;
 }
 
 .wave-divider .wave:nth-child(2) {
+  animation-delay: -2s;
   opacity: 0.7;
 }
 
 .wave-divider .wave:nth-child(3) {
+  animation-delay: -4s;
   opacity: 0.5;
 }
 
-/* Hero Section */
-.hero {
-  min-height: 80vh;
-  display: grid;
-  place-items: center;
-  text-align: center;
+/* Floating Bubbles */
+.floating-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(123, 196, 196, 0.3));
+  animation: bubble-float 15s linear infinite;
+  opacity: 0.6;
 }
 
-.hero h1 {
-  font-size: clamp(36px, 6vw, 76px);
-  line-height: 1.05;
-  margin-bottom: 24px;
+.floating-bubble:nth-child(odd) {
+  animation-duration: 20s;
+  background: radial-gradient(circle at 30% 30%, rgba(244, 208, 63, 0.6), rgba(123, 196, 196, 0.2));
 }
 
-.hero p {
-  font-size: clamp(16px, 2vw, 24px);
-  margin-bottom: 32px;
-  opacity: 0.9;
+/* Ripple Effects */
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(123, 196, 196, 0.3);
+  animation: ripple-expand 4s ease-out infinite;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
+.ripple-effect:nth-child(2) {
+  animation-delay: 1s;
 }
 
-::-webkit-scrollbar-track {
-  background: rgba(20, 20, 32, 0.5);
-  border-radius: 5px;
+.ripple-effect:nth-child(3) {
+  animation-delay: 2s;
 }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #00ffa8, #9b5cff);
-  border-radius: 5px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* Kelp Sway Animation */
+.kelp-sway {
+  animation: kelp-motion 8s ease-in-out infinite;
+  transform-origin: bottom center;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #9b5cff, #ff4da6);
+/* Logo Container Inside Vinyl */
+.ocean-logo-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 2;
+  border: 2px solid rgba(123, 196, 196, 0.3);
 }
 
-/* Input Styles */
-input, textarea {
-  transition: all 0.6s ease;
-  background: rgba(20, 20, 32, 0.8);
-  border: 2px solid rgba(155, 92, 255, 0.3);
-  color: var(--txt);
-  border-radius: 8px;
-  padding: 12px 16px;
-}
-
-input:focus, textarea:focus {
-  outline: none;
-  border-color: rgba(0, 255, 168, 0.6);
-  box-shadow: 0 0 20px rgba(0, 255, 168, 0.2);
-  background: rgba(20, 20, 32, 0.95);
-}
-
-/* Ocean Cards Fallback (from old theme) */
+/* Ocean Cards */
 .ocean-card {
-  background: rgba(20, 20, 32, 0.7);
+  background: linear-gradient(135deg,
+    rgba(26, 26, 26, 0.9) 0%,
+    rgba(45, 45, 45, 0.7) 50%,
+    rgba(58, 58, 58, 0.5) 100%);
   backdrop-filter: blur(20px);
-  border: 2px solid rgba(0, 255, 168, 0.3);
+  border: 2px solid rgba(255, 215, 0, 0.3);
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  transition: all 0.6s ease;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
   position: relative;
   overflow: hidden;
 }
@@ -271,9 +177,9 @@ input:focus, textarea:focus {
   height: 100%;
   background: linear-gradient(90deg,
     transparent,
-    rgba(0, 255, 168, 0.15),
+    rgba(255, 215, 0, 0.15),
     transparent);
-  transition: left 0.8s ease;
+  transition: left 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .ocean-card:hover::before {
@@ -281,28 +187,27 @@ input:focus, textarea:focus {
 }
 
 .ocean-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-12px);
   box-shadow:
-    0 20px 60px rgba(0, 255, 168, 0.2),
-    0 0 40px rgba(255, 77, 166, 0.1),
+    0 20px 60px rgba(255, 215, 0, 0.2),
+    0 0 40px rgba(255, 107, 53, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  border-color: rgba(0, 255, 168, 0.6);
+  border-color: rgba(255, 215, 0, 0.6);
 }
 
-/* Ocean Buttons Fallback */
+/* Ocean Buttons */
 .ocean-button {
   background: linear-gradient(135deg,
-    #00ffa8 0%,
-    #9b5cff 50%,
-    #ff4da6 100%);
+    #FFD700 0%,
+    #FFC700 50%,
+    #FF6B35 100%);
   position: relative;
   overflow: hidden;
   box-shadow:
-    0 4px 25px rgba(0, 255, 168, 0.5),
+    0 4px 25px rgba(255, 215, 0, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  transition: all 0.6s ease;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
   border: 2px solid rgba(255, 255, 255, 0.2);
-  cursor: pointer;
 }
 
 .ocean-button::before {
@@ -316,7 +221,7 @@ input:focus, textarea:focus {
     transparent,
     rgba(255, 255, 255, 0.3),
     transparent);
-  transition: left 0.8s ease;
+  transition: left 0.5s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .ocean-button:hover::before {
@@ -324,7 +229,7 @@ input:focus, textarea:focus {
 }
 
 .ocean-button:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px) scale(1.02);
   box-shadow:
     0 12px 40px rgba(255, 107, 53, 0.6),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
@@ -333,84 +238,197 @@ input:focus, textarea:focus {
 /* Gradient Text */
 .ocean-text-gradient {
   background: linear-gradient(135deg,
-    #00ffa8 0%,
-    #9b5cff 25%,
-    #ff4da6 50%,
-    #00ffa8 100%);
+    #FFD700 0%,
+    #FFC700 25%,
+    #FF6B35 50%,
+    #00D9FF 75%,
+    #FFD700 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   background-size: 300% 300%;
+  animation: shimmer 3s ease-in-out infinite;
 }
 
-/* Siren Card */
+/* Underwater Light Rays */
+.light-ray {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(to bottom,
+    rgba(255, 215, 0, 0.8),
+    rgba(255, 107, 53, 0.4),
+    transparent);
+  animation: wave-flow 8s ease-in-out infinite;
+  opacity: 0.8;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Ripple Effect */
+.ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-container::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 215, 0, 0.4);
+  transform: translate(-50%, -50%);
+  animation: ripple 2s ease-out infinite;
+}
+
+/* Sound Wave Visualization */
+.ocean-sound-wave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.ocean-sound-bar {
+  width: 4px;
+  background: linear-gradient(to top, #FFD700, #FF6B35, #00D9FF);
+  border-radius: 2px;
+  animation: gentle-float 2s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+.ocean-sound-bar:nth-child(1) { animation-delay: 0s; height: 25px; }
+.ocean-sound-bar:nth-child(2) { animation-delay: 0.1s; height: 40px; }
+.ocean-sound-bar:nth-child(3) { animation-delay: 0.2s; height: 55px; }
+.ocean-sound-bar:nth-child(4) { animation-delay: 0.3s; height: 35px; }
+.ocean-sound-bar:nth-child(5) { animation-delay: 0.4s; height: 60px; }
+.ocean-sound-bar:nth-child(6) { animation-delay: 0.5s; height: 45px; }
+.ocean-sound-bar:nth-child(7) { animation-delay: 0.4s; height: 30px; }
+.ocean-sound-bar:nth-child(8) { animation-delay: 0.3s; height: 40px; }
+
+/* Pearl Glow Effect */
+.pearl-glow {
+  animation: pearl-glow 4s ease-in-out infinite;
+}
+
 .siren-card {
-  background: rgba(20, 20, 32, 0.8);
+  background: linear-gradient(135deg,
+    rgba(26, 26, 26, 0.8) 0%,
+    rgba(45, 45, 45, 0.6) 100%);
   backdrop-filter: blur(20px);
-  border: 2px solid rgba(0, 255, 168, 0.2);
+  border: 2px solid rgba(255, 215, 0, 0.2);
   box-shadow:
     0 10px 40px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  transition: all 0.6s ease;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
 }
 
 .siren-card:hover {
-  border-color: rgba(0, 255, 168, 0.6);
+  border-color: rgba(255, 215, 0, 0.6);
   box-shadow:
-    0 15px 60px rgba(155, 92, 255, 0.25),
-    0 0 30px rgba(0, 255, 168, 0.15),
+    0 15px 60px rgba(255, 107, 53, 0.25),
+    0 0 30px rgba(255, 215, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transform: translateY(-6px);
 }
 
-/* Pearl Glow */
-.pearl-glow {
-  box-shadow: 0 0 20px rgba(0, 255, 168, 0.4);
-  transition: box-shadow 0.6s ease;
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.pearl-glow:hover {
-  box-shadow: 0 0 40px rgba(155, 92, 255, 0.7);
+::-webkit-scrollbar-track {
+  background: rgba(45, 45, 45, 0.5);
+  border-radius: 5px;
 }
 
-/* Fade In on Scroll */
-.fade-in {
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #FFD700, #FF6B35);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.fade-in.visible {
-  opacity: 1;
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #FF6B35, #00D9FF);
 }
 
-/* Animation - Fade In */
-@keyframes fadeIn {
-  from {
+/* Animations */
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes wave-flow {
+  0%, 100% { transform: translateX(0px) translateY(0px); }
+  25% { transform: translateX(10px) translateY(-5px); }
+  50% { transform: translateX(-5px) translateY(-10px); }
+  75% { transform: translateX(-10px) translateY(-5px); }
+}
+
+@keyframes pearl-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(255, 107, 53, 0.7); }
+}
+
+@keyframes underwater-drift {
+  0% { transform: translateY(100vh) translateX(-10px) rotate(0deg); }
+  100% { transform: translateY(-100px) translateX(10px) rotate(360deg); }
+}
+
+@keyframes vinyl-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes wave-motion {
+  0%, 100% { transform: translateX(0px) translateY(0px); }
+  50% { transform: translateX(-25px) translateY(-10px); }
+}
+
+@keyframes bubble-float {
+  0% { 
+    transform: translateY(100vh) translateX(0px) scale(0);
     opacity: 0;
   }
-  to {
-    opacity: 1;
+  10% {
+    opacity: 0.6;
   }
-}
-
-@keyframes slideUp {
-  from {
+  90% {
+    opacity: 0.6;
+  }
+  100% { 
+    transform: translateY(-100px) translateX(50px) scale(1);
     opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 
-section {
-  animation: fadeIn 0.8s ease-in-out;
+@keyframes ripple-expand {
+  0% { 
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  100% { 
+    transform: scale(3);
+    opacity: 0;
+  }
 }
 
-.fade-in-content {
-  animation: slideUp 0.8s ease-in-out;
+@keyframes kelp-motion {
+  0%, 100% { transform: rotate(0deg) scaleY(1); }
+  25% { transform: rotate(2deg) scaleY(1.05); }
+  50% { transform: rotate(0deg) scaleY(1); }
+  75% { transform: rotate(-2deg) scaleY(1.05); }
 }
